@@ -3,3 +3,12 @@ h1{
     color:red;
     font-size: 100px;
 }
+
+.size_img{
+    width: 218 !important;
+    height: 150px !important;
+}
+
+.playwrite-mx {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

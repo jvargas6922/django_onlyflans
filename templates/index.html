@@ -6,24 +6,39 @@
 
 {% block content %}
 <h1 class="text-center">{{ title }}</h1>
-
 <div class="container-fluid">
   <div class="row">
     {% for dessert  in desserts_list  %}
         <div class="col-3 p-5">
-          <div class="card" style="width: 18rem">
-            <img src="{{ dessert.img }}" class="card-img-top" alt="{{ dessert.img }}" />
+          <div class="card" style="width: 20rem">
+            <img src="{{ dessert.img }}" class="card-img-top size_img" alt="{{ dessert.img }}" />
             <div class="card-body">
               <h5 class="card-title">{{ dessert.nombre }}</h5>
               <p class="card-text">
                 {{ dessert.descripcion }}
               </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="#" class="btn btn-primary btn_action" data-nombre="{{ dessert.nombre }}">Comprame</a>
+              <input type="hidden" class="deseert_value" value="{{ dessert.nombre }}">
             </div>
           </div>
         </div>
     {% endfor %}
   </div>
 </div>
-       
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function () {
+      $('.btn_action').click(function(event) {
+        event.preventDefault(); 
+        let productId = $(this).data('nombre'); 
+        var productName = $(this).closest('.card-body').find('.card-title').text();
+        console.log('Producto agregado al carrito: ' + productName + productId + ')'); 
+        //alert('Producto agregado al carrito: ' + productName + productId + ')');
+      });
+
+    });
+</script>
+    
 {% endblock %}
