@@ -3,9 +3,49 @@ from django.http import HttpResponse
 
 def index(request):
     title = 'Postres disponibles'
-    desserts =[ 'flan de coco', 'flan de vainilla', 'flan de queso', 'flan de chocolate', 'flan de cafe', 'flan de fresa', 'flan de guayaba', 'flan de piña', 'flan de naranja', 'flan de limon']
+    desserts_list = [
+        {
+            'nombre': 'flan de coco',
+            'descripcion': 'flan de coco con caramelo',
+            'img': 'flan_coco.jpg'
+        },
+        {
+            'nombre': 'flan de vainilla',
+            'descripcion': 'flan de vainilla',
+            'img': 'flan_coco.jpg'
+        },
+        {
+            'nombre': 'flan de chocolate',
+            'descripcion': 'flan de coco con caramelo',
+            'img': 'flan_coco.jpg'
+        },
+        {
+            'nombre': 'flan de queso',
+            'descripcion': 'flan de coco con caramelo',
+            'img': 'flan_coco.jpg'
+        },
+        {
+            'nombre': 'flan de coco',
+            'descripcion': 'flan de coco con caramelo',
+            'img': 'flan_coco.jpg'
+        },
+        {
+            'nombre': 'flan de coco',
+            'descripcion': 'flan de coco con caramelo',
+            'img': 'flan_coco.jpg'
+        },
+        {
+            'nombre': 'flan de coco',
+            'descripcion': 'flan de coco con caramelo',
+            'img': 'flan_coco.jpg'
+        },
+            
+    ]
     
-    context ={'desserts': desserts, 'title': title}
+    
+    # desserts =[ 'flan de coco', 'flan de vainilla', 'flan de queso', 'flan de chocolate', 'flan de cafe', 'flan de fresa', 'flan de guayaba', 'flan de piña', 'flan de naranja', 'flan de limon','torta chocolate','total fresa']
+    
+    context ={'desserts_list': desserts_list, 'title': title}
     return render(request, 'index.html', context)
 
 def about(request):
